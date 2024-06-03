@@ -4,24 +4,20 @@ import Sobre from "./pages/Sobre";
 import Projetos from "./pages/Projetos";
 import Contatos from "./pages/Contatos";
 import Pages404 from "./pages/Pages404";
-import Header from "./components/Header";
-import Container from "./components/Container";
-import Footer from "./components/Footer";
+import PageBase from "./pages/PageBase";
 
 function AppRoutes() {
     return (
         <BrowserRouter>
-            <Header />
-            <Container>
-                <Routes>
-                    <Route path="/" element={<Home />}></Route>
+            <Routes>
+                <Route path="/" element={<PageBase />}>
+                    <Route index element={<Home />}></Route>
                     <Route path="/sobre" element={<Sobre />}></Route>
                     <Route path="/projetos" element={<Projetos />}></Route>
                     <Route path="/contatos" element={<Contatos />}></Route>
                     <Route path="*" element={<Pages404 />}></Route>
-                </Routes>
-            </Container>
-            <Footer/>
+                </Route>
+            </Routes>
         </BrowserRouter>
     )
 }
